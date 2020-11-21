@@ -13,8 +13,18 @@ dragElement(document.getElementById('plant12'));
 dragElement(document.getElementById('plant13'));
 dragElement(document.getElementById('plant14'));
 
-console.log(document.getElementById('plant1').ondblclick = document.getElementById('plant1').style.zIndex);
 
+doubleClickElement(document.getElementById('plant1'));
+
+function doubleClickElement(terrariumElement) {
+    document.ondblclick = pointerDoubleClick;
+    function pointerDoubleClick(e) {
+        e.preventDefault();
+        console.log(e);
+        console.log('double clicked')
+        terrariumElement.textContent = `Position: (${e.clientX}, ${e.clientY})`;
+    }
+}
 
 function dragElement(terrariumElement) {
     // set 4 positions for positioning on the screen
@@ -48,5 +58,6 @@ function dragElement(terrariumElement) {
 		document.onpointerup = null;
 		document.onpointermove = null;
 	}
+    
 }
 
