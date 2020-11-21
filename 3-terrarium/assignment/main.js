@@ -17,12 +17,13 @@ dragElement(document.getElementById('plant14'));
 doubleClickElement(document.getElementById('plant1'));
 
 function doubleClickElement(terrariumElement) {
-    document.ondblclick = pointerDoubleClick;
+    terrariumElement.ondblclick = pointerDoubleClick;
     function pointerDoubleClick(e) {
         e.preventDefault();
         console.log(e);
         console.log('double clicked')
         terrariumElement.textContent = `Position: (${e.clientX}, ${e.clientY})`;
+        terrariumElement.style.zIndex = 3;
     }
 }
 
